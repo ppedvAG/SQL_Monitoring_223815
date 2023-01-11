@@ -20,12 +20,15 @@ Seit SQL 2016: Standardwert statt 0 nun Anzagh der Kerne , aber max 8
 set statistics io, time on
 
 
-select country, city, SUM(freight) from ku  --62000 Seiten
-group by country, city 
+select shipcountry, shipcity, SUM(freight) from orders  --62000 Seiten
+group by shipcountry, shipcity
 
 -- CPU-Zeit = 374 ms, verstrichene Zeit = 52 ms.
 --nur ein Grund dafür.. mehr CPUs haben was getan.. 
 --scheint Sinn gemacht zu haben
+
+select * from sys.dm_os_wait_stats		   
+where wait_type like 'CX%'
 
 
 select country, city, SUM(freight) from ku  --62000 Seiten
