@@ -12,7 +12,7 @@ Jede Frage benötigt einen Ausführungsplan. Im günstigsten Fall liegt dieser bere
 Falls also die Prozessorleistung sehr hoch ist, sollten sie diesen Wert und Transactions / sec untersuchen. Die Trefferquote sollte so hoch wie möglich sein.
 GenerelStatitics: User Connections
 Anzahl der Benutzerverbindungen
-Puffer Manager: Page Life Expectancy
+Puffer Manager: Page Life Expectancy  mind 300ssek lt MS
 Seiten werden in den Speicher geladen, um die Requests der Clients schnell bedienen zu können. Die gecachten Seiten können aufgrund von zu wenig Platz zugunsten anderer Seiten aus dem Cache entfernt werden. Der Wert sollte nicht unter 300 liegen. Sonst haben Sie zu wenig Hauptspeicher
 SQL Statistics: Kompilierungen /sec
 Ausführungspläne bedürfen einer kompilierung und evtl auch einer Recompilierung. Diese führt zu einer höheren CPU Last. Sollte dieser Wert sich erhöhen, können Sie evtl durch paramtriesierung ihrer Abfragen eine Verbesserung erreichen.

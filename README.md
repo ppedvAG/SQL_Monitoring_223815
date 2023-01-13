@@ -2,9 +2,10 @@
 
 # Setup
 ## MAXDOP MAX RAM Ordner Tempdb
+## Volumewartungstask
 
 # VM
-## Hardrware vs Konfiguration
+## Hardware vs Konfiguration
 ## NUMA
 
 # Serversettings
@@ -12,5 +13,15 @@
 
 # DB Settings
 ## MAXDOP Datumskorrelation Snapshotisolation Statistiken
-## 
+## Wachstumsraten
+## Anfangsgrößen
+## Kompression
+
+# Partitionierung
+## PartSchema und -funktion
+## Archivierung
  
+
+# Monitoring
+## Aufzeichnung Profiler und Perfmon 
+

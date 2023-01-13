@@ -35,7 +35,7 @@ RANGE LEFT|RIGHT FOR VALUES (Grenzwert1, Grenzwert2)
 --   1            2        3
 --Grenzen sind inklusive
 
-create partition function fZahl(int)
+create partition function fZahl(int)	   --alles möglich was sortierbar ist
 as
 RANGE LEFT FOR VALUES(100,200)
 
@@ -50,8 +50,10 @@ partition fzahl to (bis100,bis200,rest)
 --                     1.    2.     3.
 
 
-create table ptab (id int identity not null, nummer int, spx char(4100)) --so auf Primary
-ON schZahl(nummer) 
+create table ptab (id int identity not null, nummer int, spx char(4100))
+		ON schZahl(nummer) 
+
+
 
 
 set statistics io, time off --soll es schnell sein? Dann schalte auch noch den tats Plan aus 
@@ -117,6 +119,10 @@ select * from ptab where nummer = 3170 --statt 19800 nur 4800
 
 alter partition function fzahl() merge range (100)
 
+
+select * from ptab	  where id = 117
+select * from ptab	  where nummer = 117
+
 -- Eine Partition läßt sich auch part
 
 
@@ -125,6 +131,7 @@ alter partition function fzahl() merge range (100)
 
 
 --Archivierung
+--1:1 Abbild Archiv von parttab
 
 create table archiv
 	(id int not null, nummer int, spx char(4100))
@@ -133,6 +140,8 @@ create table archiv
 alter table ptab switch partition 1 to archiv
 
 select * from archiv
+
+--100MB/Sek ---> 100000000000000000000000000000MB			ca nicht messbar
 
 select * from ptab where id = 203
 
@@ -147,10 +156,12 @@ select * from ptab where id = 203
 create partition function fZahl(datetime)--ms
 as
 RANGE LEFT FOR VALUES('31.12.2020 00:00:00.000',--falsch
-					'31.12.2020 23.59:59.999', --richtig
+					'31.12.2020 23.59:59.997', --richtig
 					'','','','')
 
 					--A-M  N-R  S-Z
+
+					-------N]-----------------------------
 create partition function fZahl(varchar(50))--ms
 as
 RANGE LEFT FOR VALUES('N','S')
@@ -160,7 +171,7 @@ RANGE LEFT FOR VALUES('N','S')
 
 create partition scheme schZahl
 as
-partition fzahl to ([PRIMARY],[PRIMARY],[PRIMARY])
+partition fzahl all to ([PRIMARY])
 
 --Gehts?.. Macht das sinn? bzw gehts dir gut??
 --Ja   --           macht sinn... es ist einfach alles etwas kleiner

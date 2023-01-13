@@ -10,7 +10,7 @@ ALTER DATABASE [Northwind]
 
 ALTER DATABASE [Northwind] 
 	SET DATE_CORRELATION_OPTIMIZATION ON WITH NO_WAIT
---Gibt es Abhängigkeiten zwischen Dateumsfeldern..?
+--Gibt es Abhängigkeiten zwischen Datumsfeldern..?
 --Etwa immer 14 nach Termin1 , dann Termin2
 --SQL Server kann die Korrelation erkennen und entsprechen 
 --mit geeigneten Statistiken die Daten effizienter holen
@@ -18,8 +18,7 @@ ALTER DATABASE [Northwind]
 
 
 
-ALTER DATABASE [Northwind] 
-	SET READ_COMMITTED_SNAPSHOT ON WITH NO_WAIT
+
 GO
 ALTER DATABASE [Northwind] 
 	SET DELAYED_DURABILITY = ALLOWED WITH NO_WAIT
@@ -45,11 +44,19 @@ ALTER DATABASE
 	SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = On;
 --this will work same as enabling the Trace Flag 4199 in your SQL Server.
 
-
+-----------------------------------------
 ALTER DATABASE [Northwind] 
 	SET ALLOW_SNAPSHOT_ISOLATION ON
 GO
 
+ALTER DATABASE [Northwind] 
+	SET READ_COMMITTED_SNAPSHOT ON WITH NO_WAIT
+
+--Ein Ändern eines Datensatzes hindert nicht mehr den Zugriff der anderen
+--aber: es werden Versionen in die tempdb kopiert
+--evtl massive Last auf tempdb
+
 
 ALTER DATABASE SCOPED CONFIGURATION 
 CLEAR PROCEDURE_CACHE ;
+-- vs dbcc freeproccache leert den gesamten Planspeicher des SQL Server

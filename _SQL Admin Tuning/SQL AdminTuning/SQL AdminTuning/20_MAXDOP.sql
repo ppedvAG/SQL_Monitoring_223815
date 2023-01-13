@@ -20,8 +20,16 @@ Seit SQL 2016: Standardwert statt 0 nun Anzagh der Kerne , aber max 8
 set statistics io, time on
 
 
-select shipcountry, shipcity, SUM(freight) from orders  --62000 Seiten
+select shipcountry, shipcity, SUM(freight) from KU  --62000 Seiten
 group by shipcountry, shipcity
+option  (maxdop 6)
+--mit 8 Kernen: 950ms
+
+
+--MAXDOP = 0 = alle
+--MAXDOP Server = 8 
+--MAXDOP DB = 4
+--MAXDOP ABfrage = 1 
 
 -- CPU-Zeit = 374 ms, verstrichene Zeit = 52 ms.
 --nur ein Grund dafür.. mehr CPUs haben was getan.. 
