@@ -1,5 +1,6 @@
 --Monitoring
 
+
 --live Problem
 ---- Reihenfolge für Monitoring
 --1.  Taskmanager: Ausschluss andere Dinge (Anitvirentool, Viren, Trojaner..)

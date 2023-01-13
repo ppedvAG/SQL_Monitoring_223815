@@ -37,9 +37,13 @@ select * from KursDB..t1
 --Seiten kommen 1:1 in RAM
 --Seiten: weniger oder gleich = 33 Seiten !!
 --CPU : gleich  oder mehr  Dauer: schneller od länger
---CPU wird im Regelfall mehr werden.. in der Praxis durchaus auch mehr CPU
+--CPU wird im Regelfall mehr werden.. 
+--in der Praxis durchaus auch mehr CPU
 
---
+--je höher die Kompression, desto größer die Ersparnis bei CPU
+--bleibt der Aufwand für Entpacken gering--> weniger CPU als vorher
+--==> geringe Kompression stellt sich Frage, ob überhaupt Kompression
+--Archivtabelle :-)
 
 --APP geht .. die Kompression ist transparent.. also muss die APP auch dekomprimierte Daten bekommen
 
@@ -47,5 +51,6 @@ select * from KursDB..t1
 
 Erwartungshorizont der Kompression in der Praxis: 40 bis 60%.. Text besser als Zahlen komprimierbar
 
+   --Kompression hift: dass andere Tabellen besser Platz im RAM finden
 
 
