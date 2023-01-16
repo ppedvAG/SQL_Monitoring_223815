@@ -16,12 +16,20 @@
 ## Wachstumsraten
 ## Anfangsgrößen
 ## Kompression
+## ScopedDatabase (MAXDO/ ADR / QUeryOptimizer )
+## Nützliche Traceflags
 
 # Partitionierung
 ## PartSchema und -funktion
 ## Archivierung
  
+ # Indizes
+ ##Arten von Indizes und Aufbau
+ ##Wartung
 
 # Monitoring
 ## Aufzeichnung Profiler und Perfmon 
-
+## XEvents
+## Aktivitätsmonitor
+## DMVs
+##QueryStore
