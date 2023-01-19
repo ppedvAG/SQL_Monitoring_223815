@@ -14,22 +14,22 @@
 # DB Settings
 ## MAXDOP Datumskorrelation Snapshotisolation Statistiken
 ## Wachstumsraten
-## Anfangsgrößen
+## AnfangsgrÃ¶ÃŸen
 ## Kompression
 ## ScopedDatabase (MAXDO/ ADR / QUeryOptimizer )
-## Nützliche Traceflags
+## NÃ¼tzliche Traceflags
 
 # Partitionierung
 ## PartSchema und -funktion
 ## Archivierung
  
  # Indizes
- ##Arten von Indizes und Aufbau
- ##Wartung
+ ## Arten von Indizes und Aufbau
+ ## Wartung
 
 # Monitoring
 ## Aufzeichnung Profiler und Perfmon 
 ## XEvents
-## Aktivitätsmonitor
+## AktivitÃ¤tsmonitor
 ## DMVs
-##QueryStore
+## QueryStore
